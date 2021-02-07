@@ -13,6 +13,7 @@ import ChatList from '../views/Chat/ChatList.vue'
 import DetailFlight from '../views/FlightDetail/FlightDetail.vue'
 import ChatRoom from '../views/Chat/ChatRoom.vue'
 import AddSchedule from '../views/PostSchedule/PostSchedule.vue'
+import StatusFlight from '../views/Booking/FlightStatus.vue'
 
 Vue.use(VueRouter)
 
@@ -98,6 +99,11 @@ const routes = [
     name: 'PostSchedule',
     component: AddSchedule,
     meta: { requiresAdmin: true }
+  },
+  {
+    path: '/flightstatus/:id',
+    name: 'FlightStatus',
+    component: StatusFlight
   }
 ]
 

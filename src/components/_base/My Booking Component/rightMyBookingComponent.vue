@@ -157,13 +157,12 @@ export default {
   },
   computed: {
     ...mapGetters({
-      myBooking: 'getMyBooking',
-      passengers: 'getAllPassengers'
+      myBooking: 'getMyBooking'
     })
   },
   methods: {
-    ...mapActions(['getPassengers', 'deleteBookingVuex']),
-    ...mapMutations(['setElementMyBooking', 'setDataPassengers']),
+    ...mapActions(['deleteBookingVuex']),
+    ...mapMutations(['setElementMyBooking']),
     myBookingDetail(el, i) {
       if (this.isClickDetails[i]) this.isClickDetails[i] = false
       else this.isClickDetails[i] = true

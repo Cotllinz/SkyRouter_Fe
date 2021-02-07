@@ -85,7 +85,10 @@
             <div class="line"></div>
           </b-col>
           <b-col cols="12" sm="5" md="4" lg="3">
-            <vue-qrcode value="elMyBooking.bookingId" class="qr" />
+            <vue-qrcode
+              :value="`https://skyrouter.netlify.app/${mydata}`"
+              class="qr"
+            />
           </b-col>
         </b-row>
       </div>
@@ -98,6 +101,17 @@ import VueQrcode from 'vue-qrcode'
 import { mapGetters } from 'vuex'
 import moment from 'moment'
 export default {
+  created() {
+    this.mydata = this.elMyBooking.orderId.concat(
+      '-',
+      this.elMyBooking.bookingId
+    )
+  },
+  data() {
+    return {
+      params: ''
+    }
+  },
   components: {
     VueQrcode
   },

@@ -4,7 +4,7 @@
       <div class="box-detail">
         <div class="flex-comp">
           <b-row align-v="center">
-            <b-col cols="12" sm="12" md="12" lg="7">
+            <b-col cols="12" sm="12" md="12" lg="6">
               <img
                 v-if="data.airlanes === 'Garuda'"
                 src="../../../assets/icon/garuda.png"
@@ -36,7 +36,7 @@
                 class="mr-4"
               />
             </b-col>
-            <b-col cols="12" sm="12" md="12" lg="5">
+            <b-col cols="12" sm="12" md="12" lg="6">
               <h5 class="grey">
                 {{ data.airlanes }}
               </h5>

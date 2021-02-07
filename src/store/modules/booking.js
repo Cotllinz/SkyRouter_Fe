@@ -4,23 +4,23 @@ dotenv.config()
 export default {
   state: {
     myBooking: [],
-    passengers: [],
     elMyBooking: '',
-    notification: []
+    notification: [],
+    flight: 0
   },
   mutations: {
     setDataBooking(state, payload) {
       state.myBooking = payload
       console.log(state.myBooking)
     },
-    setDataPassengers(state, payload) {
-      state.passengers = payload
-    },
     setElementMyBooking(state, payload) {
       state.elMyBooking = payload
     },
     setNotif(state, payload) {
       state.notification = payload.data
+    },
+    setFlight(state, payload) {
+      state.flight = payload
     }
   },
   actions: {
@@ -62,17 +62,17 @@ export default {
           })
       })
     },
-    getPassengers(context, payload) {
+    patchFlight(context, payload) {
       return new Promise((resolve, reject) => {
         axios
-          .get(`${process.env.VUE_APP_URL}booking/passenger/${payload}`)
+          .patch(`${process.env.VUE_APP_URL}booking/${payload}`)
           .then(result => {
-            console.log(result.data.data)
-            context.commit('setDataPassengers', result.data.data)
-            resolve(result.data.data)
+            context.commit('setFlight', 1)
+            resolve(result)
           })
           .catch(error => {
-            reject(error)
+            alert(error.response)
+            reject(error.response)
           })
       })
     },
@@ -102,6 +102,9 @@ export default {
     },
     getNotification(state) {
       return state.notification
+    },
+    getStatusFlight(state) {
+      return state.flight
     }
   }
 }
